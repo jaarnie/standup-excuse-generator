@@ -1,3 +1,5 @@
+import ReactGA from 'react-ga4';
+
 import { useState } from 'react';
 import { HiOutlineLightBulb, HiRefresh } from 'react-icons/hi';
 
@@ -7,6 +9,9 @@ import ExcuseCard from '../components/ExcuseCard';
 import { TODAY_EXCUSES, YESTERDAY_EXCUSES, randomNumber } from '../constants';
 
 export default function Home() {
+  ReactGA.initialize(`${process.env.REACT_APP_GA}`);
+  ReactGA.send('pageview');
+
   const [excuse, setExcuse] = useState({
     today: TODAY_EXCUSES[randomNumber()],
     yesterday: YESTERDAY_EXCUSES[randomNumber()],
@@ -32,10 +37,12 @@ export default function Home() {
   return (
     <>
       <div className='flex flex-col my-5 items-center'>
+        <span>
+          <HiOutlineLightBulb className='w-10 h-10 text-white' />
+        </span>
         <h1 className='text-center font-bold break-normal text-3xl md:text-5xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500'>
           Standup Excuse Generator
         </h1>
-        <HiOutlineLightBulb className='w-20 h-20 text-white' />
       </div>
       <div onClick={() => handleCardClick('yesterday')}>
         <ExcuseCard today={false} excuse={excuse.yesterday} />
