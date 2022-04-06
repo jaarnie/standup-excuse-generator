@@ -7,4 +7,4 @@ Tired of thinking what to say during standup? Fret no more and let a robotic gen
 Click the button at the bottom to randomise, or click on each card to individually change the excuse.
 
 ##### Running locally:
-Run `npm i` and it'll run on `localhost:7001`
+Run `npm run dev` and it'll run on `localhost:7001`
