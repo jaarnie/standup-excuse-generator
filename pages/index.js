@@ -9,7 +9,7 @@ import ExcuseCard from '../components/ExcuseCard';
 import { TODAY_EXCUSES, YESTERDAY_EXCUSES, randomNumber } from '../constants';
 
 export default function Home() {
-  ReactGA.initialize(`${process.env.REACT_APP_GA}`);
+  ReactGA.initialize(`${process.env.NEXT_PUBLIC_GA}`);
   ReactGA.send('pageview');
 
   const [excuse, setExcuse] = useState({
